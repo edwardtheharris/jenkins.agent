@@ -12,6 +12,7 @@ node('worker') {
 		agentImage = docker.build('gcr.io/xander-the-harris-jenkins/agent')
 	}
 	stage('push') {
+		docker.withRegistry('gcr.io/xander-the-harris-jenkins')
 		echo('push')
 	}
 	stage('publish') {
