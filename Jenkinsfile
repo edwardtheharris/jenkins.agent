@@ -17,7 +17,7 @@ node('worker') {
 											 passwordVariable: 'gcr_pass',
 											 usernameVariable: 'gcr_user')
 		]) {
-			docker.withRegistry('gcr.io/xander-the-harris-jenkins')	{
+			docker.withRegistry('https://gcr.io/xander-the-harris-jenkins')	{
 				agentImage.push()
 				agentImage.push(env.BUILD_NUMBER)
 			}
@@ -28,7 +28,7 @@ node('worker') {
 			step([$class: 'GitHubIssueNotifier',
 			      issueAppend: true,
 			      issueLabel: 'jenkins',
-			      issueTitle: '$JOB_NAME $BUILD_DISPLAY_NAME failed'])	
+			      issueTitle: '$JOB_NAME $BUILD_DISPLAY_NAME failed'])
 		}
 	}
 }
