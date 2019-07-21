@@ -3,7 +3,7 @@ FROM jenkins/jnlp-slave:alpine
 USER root
 
 RUN apk update
-RUN apk add docker libffi-dev openssl-dev python3 python3-dev py3-pip;
+RUN apk add alpine-sdk docker libffi-dev openssl-dev python3 python3-dev py3-pip;
 
 RUN pip3 install -U pip
 
