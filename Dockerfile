@@ -1,3 +1,18 @@
 FROM jenkins/jnlp-slave:alpine
 
-RUN apk update; apk add python3 py3-pip;
+USER root
+
+RUN apk update
+RUN apk add alpine-sdk docker libffi-dev openssl-dev python3 python3-dev py3-pip;
+
+RUN pip3 install -U pip
+
+RUN pip3 install  git+https://github.com/ansible/ansible#egg=ansible
+
+RUN pip3 install ansible-lint
+
+RUN apk add libxml2 libxslt libxml2-dev libxslt-dev;
+
+RUN pip3 install git+https://github.com/edwardtheharris/beancount
+
+RUN pip3 install fava
