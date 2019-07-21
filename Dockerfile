@@ -11,7 +11,7 @@ RUN pip3 install  git+https://github.com/ansible/ansible#egg=ansible
 
 RUN pip3 install ansible-lint
 
-RUN apk add libxml2 libxslt;
+RUN apk add libxml2 libxslt libxml2-dev libxslt-dev;
 
 RUN pip3 install git+https://github.com/edwardtheharris/beancount
 
