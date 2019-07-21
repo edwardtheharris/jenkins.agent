@@ -18,7 +18,8 @@ ansiColor() {
 												 passwordVariable: 'gcr_pass',
 												 usernameVariable: 'gcr_user')
 			]) {
-				docker.withRegistry('https://gcr.io/xander-the-harris-jenkins')	{
+				docker.withRegistry('https://gcr.io/',
+														'gcr:xander-the-harris-jenkins')	{
 					agentImage.push()
 					agentImage.push(env.BUILD_NUMBER)
 				}
@@ -32,5 +33,5 @@ ansiColor() {
 				      issueTitle: '$JOB_NAME $BUILD_DISPLAY_NAME failed'])
 			}
 		}
-	}	
+	}
 }
