@@ -25,13 +25,5 @@ ansiColor() {
 				}
 			}
 		}
-		stage('publish') {
-			if (currentBuild.currentResult == 'FAILURE') {
-				step([$class: 'GitHubIssueNotifier',
-				      issueAppend: true,
-				      issueLabel: 'jenkins',
-				      issueTitle: '$JOB_NAME $BUILD_DISPLAY_NAME failed'])
-			}
-		}
 	}
 }
