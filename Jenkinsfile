@@ -10,7 +10,10 @@ ansiColor() {
 			checkout scm
 		}
 		stage('build') {
-			agentImage = docker.build('gcr.io/xander-the-harris-jenkins/agent')
+			docker.withServer('tcp://worker.jenkins.brick-house.org:2376', 
+												'worker.jenkins.brick-house.org') {
+				agentImage = docker.build('gcr.io/xander-the-harris-jenkins/agent')
+			}
 		}
 		stage('push') {
 			withCredentials([
