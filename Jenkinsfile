@@ -18,8 +18,8 @@ ansiColor() {
 		stage('push') {
 			withCredentials([
 				usernamePassword(credentialsId: 'gcr:xander-the-harris-jenkins',
-												 passwordVariable: 'gcr_pass',
-												 usernameVariable: 'gcr_user')
+												 passwordVariable: '',
+												 usernameVariable: '')
 			]) {
 				docker.withRegistry('https://gcr.io/',
 														'gcr:xander-the-harris-jenkins')	{
