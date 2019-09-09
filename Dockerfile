@@ -9,7 +9,7 @@ RUN pip3 install -U pip
 
 RUN pip3 install  git+https://github.com/ansible/ansible#egg=ansible
 
-RUN pip3 install ansible-lint
+RUN pip3 install ansible-lint pipenv
 
 RUN apk add libxml2 libxslt libxml2-dev libxslt-dev;
 
