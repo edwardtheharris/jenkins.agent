@@ -21,7 +21,7 @@ ansiColor() {
 												 passwordVariable: '',
 												 usernameVariable: '')
 			]) {
-				docker.withRegistry('https://gcr.io/',
+				docker.withRegistry('http://gcr.io/',
 														'gcr:xander-the-harris-jenkins')	{
 					agentImage.push()
 					agentImage.push(env.BUILD_NUMBER)
