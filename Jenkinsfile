@@ -21,11 +21,12 @@ ansiColor() {
 												 passwordVariable: '',
 												 usernameVariable: '')
 			]) {
-				docker.withRegistry('http://gcr.io/',
-														'gcr:xander-the-harris-jenkins')	{
-					agentImage.push()
-					agentImage.push(env.BUILD_NUMBER)
-				}
+				sh($/
+					gcloud auth activate service-account --key-file /home/duchess/xander-the-harris-jenkins.json
+					gcloud auth configure docker
+				/$)
+				agentImage.push()
+				agentImage.push(env.BUILD_NUMBER)
 			}
 		}
 	}
