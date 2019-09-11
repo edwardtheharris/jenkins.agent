@@ -16,3 +16,9 @@ RUN apk add libxml2 libxslt libxml2-dev libxslt-dev;
 RUN pip3 install git+https://github.com/edwardtheharris/beancount
 
 RUN pip3 install fava
+
+RUN curl https://sdk.cloud.google.com | bash
+
+RUN echo "/home/jenkins/google-cloud-sdk/completion.bash.inc" >> /root/.bashrc
+
+RUN echo "/home/jenkins/google-cloud-sdk/path.bash.inc" >> /root/.bashrc
